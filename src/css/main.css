@@ -1,6 +1,6 @@
 /* Estilos generales */
 body {
-    background: #1e1e1e; /* Fondo oscuro para darle un toque espacial */
+    background: #222A68;
     color: #fff;
     font-family: 'Roboto', sans-serif;
     margin: 0;
@@ -22,18 +22,18 @@ header {
 
 h1 {
     font-size: 40px;
-    color: #FFD700;
+    color: #E2ADF2;
 }
 
 h2 {
     font-size: 28px;
-    color: #00ffcc;
+    color: #AB81CD;
     margin-bottom: 15px;
 }
 
 h3 {
     font-size: 22px;
-    color: #FFD700;
+    color: #E2ADF2;
 }
 
 /* Información del Jugador */
@@ -53,8 +53,8 @@ h3 {
 }
 
 #playerAvatar img {
-    width: 50px;
-    height: 50px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
 }
 
@@ -64,25 +64,49 @@ h3 {
     margin-top: 10px;
 }
 
-#playerInventory {
+#playerCredits {
     margin-top: 15px;
     text-align: center;
 }
 
-#playerInventory label {
-    font-size: 16px;
+/* Estilo mejorado para el desplegable */
+#playerInventory select {
+    background-color: #222A68;
     color: #fff;
+    font-size: 16px;
+    padding: 5px 7px;
+    border-radius: 10px;
+    border: 1px solid #574AE2;
+    width: 60%;
+    max-width: 220px;
+    outline: none;
+    transition: all 0.3s ease;
+    margin-top: 15px;
 }
 
-#playerInventory select {
+/* Estilo para las opciones dentro del select */
+#playerInventory option {
     background-color: #333;
     color: #fff;
-    border: none;
-    padding: 5px;
-    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
 }
 
-/* Sección de Planetas (centrado) */
+/* Efecto de hover para las opciones */
+#playerInventory option:hover {
+    background-color: #574AE2;
+}
+
+/* Efecto de focus para el select */
+#playerInventory select:focus {
+    border-color: #E2ADF2;
+    background-color: #333;
+}
+
+
+/* Sección de Planetas */
 #planetInfo {
     display: flex;
     justify-content: center;
@@ -111,7 +135,7 @@ h3 {
 
 .planet-card h3 {
     font-size: 20px;
-    color: #FFD700;
+    color: #E2ADF2;
 }
 
 .planet-card p {
@@ -120,7 +144,7 @@ h3 {
 }
 
 .planet-card button {
-    background-color: #00ffcc;
+    background-color: #AB81CD;
     border: none;
     padding: 10px;
     border-radius: 5px;
@@ -131,7 +155,7 @@ h3 {
 }
 
 .planet-card button:hover {
-    background-color: #007f7f;
+    background-color: #654597;
 }
 
 .planet-card:hover {
@@ -150,7 +174,7 @@ h3 {
 }
 
 #actions button {
-    background-color: #FFD700;
+    background-color: #E2ADF2;
     border: none;
     padding: 15px 30px;
     border-radius: 8px;
@@ -161,6 +185,6 @@ h3 {
 }
 
 #actions button:hover {
-    background-color: #ffcc00;
+    background-color: #AB81CD;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
 }

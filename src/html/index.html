@@ -9,31 +9,36 @@
 <body>
     <div id="gameContainer">
         <header>
-            <h1>Comercio Espacial</h1>
-            <p>Alcanza tu destino final comerciando entre planetas y gestionando tus recursos.</p>
+            <h1>Galactic trader</h1>
         </header>
 
         <!-- Información del Jugador en la esquina superior izquierda -->
         <section id="playerInfo">
             <div id="playerAvatar">
-                <img src="avatar-icon.png" alt="Jugador" id="avatar">
+                <img src="../img/tcm.png" alt="Jugador" id="avatar">
             </div>
             <div id="playerName">
                 <p>Jugador</p>
             </div>
-            <div id="playerInventory">
-                <label for="inventoryDropdown">Inventario:</label>
-                <select id="inventoryDropdown">
-                    <option value="agua">Agua: 10</option>
-                    <option value="minerales">Minerales: 5</option>
-                    <option value="gas">Gas: 2</option>
-                </select>
+            <div id="playerCredits">
+                Créditos: <span id="creditos">1000</span>
             </div>
+            <div id="playerInventory">
+                <label for="inventario">Inventario:</label>
+                <select id="inventario">
+                    <option id="agua">Agua: 0</option>
+                    <option id="minerales">Minerales: 0</option>
+                    <option id="gas">Gas: 0</option>
+                    <option id="comida">Comida: 0</option>
+                    <option id="energia">Energia: 0</option>
+                    <option id="hidrogeno">Hidrógeno: 0</option>
+                </select>
+            </div>         
         </section>
 
         <!-- Sección de Planetas (Centrada) -->
         <section id="planetInfo">
-            <h2>Planetas Disponibles</h2>
+            <h2>Planetas</h2>
             <div class="planet-container">
                 <div class="planet-card" id="planetaTierra">
                     <h3>Tierra</h3>
@@ -93,7 +98,6 @@
             <button id="sellButtonEnergia">Vender Energia</button>
             <button id="buyButtonHidrogeno">Comprar Hidrógeno</button>
             <button id="sellButtonHidrogeno">Vender Hidrógeno</button>
-            <button id="tradeButton">Comerciar</button>
         </section>
     </div>
 

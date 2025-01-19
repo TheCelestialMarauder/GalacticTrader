@@ -9,6 +9,7 @@ let jugador = {
         energia: 0,
         hidrogeno: 0
     },
+    limiteInventario: 100,
     planetaActual: "Tierra"
 };
 
@@ -17,77 +18,77 @@ const planetas = {
     "Tierra": {
         costeEntrada: 100,
         recursos: {
-            agua: {comprar: 50, vender: 30},
-            minerales: {comprar: 100, vender: 60},
-            gas: {comprar: 150, vender: 90},
-            comida: {comprar: 200, vender: 120}
+            agua: {comprar: 50, vender: 30, limite: 100},
+            minerales: {comprar: 100, vender: 60, limite: 100},
+            gas: {comprar: 150, vender: 90, limite: 100},
+            comida: {comprar: 200, vender: 120, limite: 100}
         }
     },
     "Marte": {
         costeEntrada: 150,
         recursos: {
-            agua: {comprar: 60, vender: 40},
-            minerales: {comprar: 120, vender: 80},
-            gas: {comprar: 180, vender: 110}
+            agua: {comprar: 60, vender: 40, limite: 80},
+            minerales: {comprar: 120, vender: 80, limite: 80},
+            gas: {comprar: 180, vender: 110, limite: 80}
         }
     },
     "Venus": {
         costeEntrada: 200,
         recursos: {
-            comida: {comprar: 250, vender: 150},
-            energia: {comprar: 300, vender: 180}
+            comida: {comprar: 250, vender: 150, limite: 50},
+            energia: {comprar: 300, vender: 180, limite: 50}
         }
     },
     "Jupiter": {
         costeEntrada: 250,
         recursos: {
-            minerales: {comprar: 150, vender: 90},
-            gas: {comprar: 200, vender: 130},
-            energia: {comprar: 350, vender: 200}
+            minerales: {comprar: 150, vender: 90, limite: 120},
+            gas: {comprar: 200, vender: 130, limite: 120},
+            energia: {comprar: 350, vender: 200, limite: 120}
         }
     },
     "Saturno": {
         costeEntrada: 300,
         recursos: {
-            agua: {comprar: 80, vender: 50},
-            minerales: {comprar: 130, vender: 75},
-            gas: {comprar: 160, vender: 100},
-            energia: {comprar: 320, vender: 190}
+            agua: {comprar: 80, vender: 50, limite: 90},
+            minerales: {comprar: 130, vender: 75, limite: 90},
+            gas: {comprar: 160, vender: 100, limite: 90},
+            energia: {comprar: 320, vender: 190, limite: 90}
         }
     },
     "Plutón": {
         costeEntrada: 350,
         recursos: {
-            agua: {comprar: 90, vender: 60},
-            minerales: {comprar: 140, vender: 90},
-            gas: {comprar: 180, vender: 120},
-            comida: {comprar: 220, vender: 140},
-            energia: {comprar: 400, vender: 250}
+            agua: {comprar: 90, vender: 60, limite: 110},
+            minerales: {comprar: 140, vender: 90, limite: 110},
+            gas: {comprar: 180, vender: 120, limite: 110},
+            comida: {comprar: 220, vender: 140, limite: 110},
+            energia: {comprar: 400, vender: 250, limite: 110}
         }
     },
     "Neptuno": {
         costeEntrada: 400,
         recursos: {
-            minerales: {comprar: 160, vender: 100},
-            gas: {comprar: 200, vender: 130},
-            energia: {comprar: 350, vender: 210},
-            hidrogeno: {comprar: 500, vender: 350}
+            minerales: {comprar: 160, vender: 100, limite: 140},
+            gas: {comprar: 200, vender: 130, limite: 140},
+            energia: {comprar: 350, vender: 210, limite: 140},
+            hidrogeno: {comprar: 500, vender: 350, limite: 140}
         }
     },
     "Urano": {
         costeEntrada: 450,
         recursos: {
-            gas: {comprar: 220, vender: 140},
-            hidrogeno: {comprar: 550, vender: 380},
-            minerales: {comprar: 170, vender: 110}
+            gas: {comprar: 220, vender: 140, limite: 160},
+            hidrogeno: {comprar: 550, vender: 380, limite: 160},
+            minerales: {comprar: 170, vender: 110, limite: 160}
         }
     },
     "Mercurio": {
         costeEntrada: 500,
         recursos: {
-            agua: {comprar: 100, vender: 70},
-            minerales: {comprar: 130, vender: 80},
-            gas: {comprar: 180, vender: 120}
+            agua: {comprar: 100, vender: 70, limite: 120},
+            minerales: {comprar: 130, vender: 80, limite: 120},
+            gas: {comprar: 180, vender: 120, limite: 120}
         }
     }
 };
@@ -95,9 +96,15 @@ const planetas = {
 // Función para actualizar la interfaz de usuario
 function updateUI() {
     document.getElementById("creditos").textContent = jugador.creditos;
-    document.getElementById("inventario").textContent = `Agua: ${jugador.inventario.agua} | Minerales: ${jugador.inventario.minerales} | Gas: ${jugador.inventario.gas} | Comida: ${jugador.inventario.comida} | Energia: ${jugador.inventario.energia} | Hidrógeno: ${jugador.inventario.hidrogeno}`;
+    document.getElementById("agua").textContent = `Agua: ${jugador.inventario.agua}`;
+    document.getElementById("minerales").textContent = `Minerales: ${jugador.inventario.minerales}`;
+    document.getElementById("gas").textContent = `Gas: ${jugador.inventario.gas}`;
+    document.getElementById("comida").textContent = `Comida: ${jugador.inventario.comida}`;
+    document.getElementById("energia").textContent = `Energia: ${jugador.inventario.energia}`;
+    document.getElementById("hidrogeno").textContent = `Hidrógeno: ${jugador.inventario.hidrogeno}`;
     document.getElementById("planeta").textContent = jugador.planetaActual;
 }
+
 
 // Función para viajar a un planeta
 function viajar(destino) {
@@ -147,17 +154,38 @@ function comprarRecurso(recurso) {
     }
 
     const precio = planeta.recursos[recurso].comprar;
-    if (jugador.creditos >= precio) {
-        jugador.creditos -= precio;
-        jugador.inventario[recurso] += 10;
-        updateUI();
+    const limite = planeta.recursos[recurso].limite;
+    const totalInventario = Object.values(jugador.inventario).reduce((acc, cantidad) => acc + cantidad, 0); // Suma total de recursos en el inventario
 
-        Swal.fire({
-            title: `Has comprado 10 unidades de ${recurso}`,
-            text: `¡Compra exitosa! Ahora tienes ${jugador.inventario[recurso]} unidades de ${recurso}.`,
-            icon: 'success',
-            confirmButtonText: 'Genial'
-        });
+    if (jugador.creditos >= precio) {
+        if (jugador.inventario[recurso] < limite && totalInventario + 10 <= jugador.limiteInventario) {
+            jugador.creditos -= precio;
+            jugador.inventario[recurso] += 10;
+            updateUI();
+
+            Swal.fire({
+                title: `Has comprado 10 unidades de ${recurso}`,
+                text: `¡Compra exitosa! Ahora tienes ${jugador.inventario[recurso]} unidades de ${recurso}.`,
+                icon: 'success',
+                confirmButtonText: 'Genial'
+            });
+        } else {
+            if (jugador.inventario[recurso] >= limite) {
+                Swal.fire({
+                    title: `Límite de ${recurso} alcanzado`,
+                    text: `No puedes almacenar más de ${limite} unidades de ${recurso} en ${jugador.planetaActual}.`,
+                    icon: 'warning',
+                    confirmButtonText: 'Entendido'
+                });
+            } else {
+                Swal.fire({
+                    title: 'Espacio de inventario lleno',
+                    text: `No tienes suficiente espacio en tu inventario. El límite total es de ${jugador.limiteInventario} unidades.`,
+                    icon: 'warning',
+                    confirmButtonText: 'Entendido'
+                });
+            }
+        }
     } else {
         Swal.fire({
             title: 'No tienes suficientes créditos',
@@ -203,15 +231,6 @@ function venderRecurso(recurso) {
     }
 }
 
-// Función para comerciar
-function comerciar() {
-    Swal.fire({
-        title: 'Comercio exitoso',
-        text: 'Has completado una transacción exitosa con los recursos del planeta.',
-        icon: 'info',
-        confirmButtonText: 'Entendido'
-    });
-}
 
 // Evento para los botones
 document.getElementById("travelButton").addEventListener("click", function() {
@@ -268,10 +287,6 @@ document.getElementById("buyButtonHidrogeno").addEventListener("click", function
 });
 document.getElementById("sellButtonHidrogeno").addEventListener("click", function() {
     venderRecurso("hidrogeno");
-});
-
-document.getElementById("tradeButton").addEventListener("click", function() {
-    comerciar();
 });
 
 // Inicializamos la UI al cargar la página
