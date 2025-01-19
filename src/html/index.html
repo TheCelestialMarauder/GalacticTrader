@@ -13,90 +13,88 @@
             <p>Alcanza tu destino final comerciando entre planetas y gestionando tus recursos.</p>
         </header>
 
-        <section id="gameInfo">
-            <h2>Información del Jugador</h2>
-            <div id="playerStatus">
-                <p>Créditos: <span id="creditos">1000</span></p>
-                <p>Inventario: <span id="inventario">Agua: 0 | Minerales: 0 | Gas: 0</span></p>
-                <p>Planeta actual: <span id="planeta">Tierra</span></p>
+        <!-- Información del Jugador en la esquina superior izquierda -->
+        <section id="playerInfo">
+            <div id="playerAvatar">
+                <img src="avatar-icon.png" alt="Jugador" id="avatar">
+            </div>
+            <div id="playerName">
+                <p>Jugador</p>
+            </div>
+            <div id="playerInventory">
+                <label for="inventoryDropdown">Inventario:</label>
+                <select id="inventoryDropdown">
+                    <option value="agua">Agua: 10</option>
+                    <option value="minerales">Minerales: 5</option>
+                    <option value="gas">Gas: 2</option>
+                </select>
             </div>
         </section>
 
+        <!-- Sección de Planetas (Centrada) -->
         <section id="planetInfo">
-            <h2>Planetas</h2>
-            <div id="planetaTierra" class="planet-card">
-                <h3>Tierra</h3>
-                <p>Coste de entrada: 100 Créditos</p>
-                <button id="travelButton">Viajar a Tierra</button>
-            </div>
-            <div id="planetaMarte" class="planet-card">
-                <h3>Marte</h3>
-                <p>Coste de entrada: 150 Créditos</p>
-                <button id="travelButton2">Viajar a Marte</button>
-            </div>
-            <div id="planetaVenus" class="planet-card">
-                <h3>Venus</h3>
-                <p>Coste de entrada: 200 Créditos</p>
-                <button id="travelButton3">Viajar a Venus</button>
-            </div>
-            <div id="planetaJupiter" class="planet-card">
-                <h3>Jupiter</h3>
-                <p>Coste de entrada: 250 Créditos</p>
-                <button id="travelButton4">Viajar a Jupiter</button>
-            </div>
-            <div id="planetaSaturno" class="planet-card">
-                <h3>Saturno</h3>
-                <p>Coste de entrada: 300 Créditos</p>
-                <button id="travelButton5">Viajar a Saturno</button>
-            </div>  
-            <div id="planetaPluton" class="planet-card">
-                <h3>Plutón</h3>
-                <p>Coste de entrada: 350 Créditos</p>
-                <button id="travelButton6">Viajar a Plutón</button>
-            </div>
-            
-            <div id="planetaNeptuno" class="planet-card">
-                <h3>Neptuno</h3>
-                <p>Coste de entrada: 400 Créditos</p>
-                <button id="travelButton7">Viajar a Neptuno</button>
-            </div>
-            
-            <div id="planetaUrano" class="planet-card">
-                <h3>Urano</h3>
-                <p>Coste de entrada: 450 Créditos</p>
-                <button id="travelButton8">Viajar a Urano</button>
-            </div>
-            
-            <div id="planetaMercurio" class="planet-card">
-                <h3>Mercurio</h3>
-                <p>Coste de entrada: 500 Créditos</p>
-                <button id="travelButton9">Viajar a Mercurio</button>
-            </div>                      
-        </section>
-
-        <section id="controls">
-            <h2>Acciones</h2>
-            <div class="button-container">
-                <button id="buyButton">Comprar 10 Unidades de Agua</button>
-                <button id="sellButton">Vender 10 Unidades de Agua</button>
-                <button id="buyButtonComida">Comprar Comida</button>
-                <button id="sellButtonComida">Vender Comida</button>
-
-                <button id="buyButtonEnergia">Comprar Energia</button>
-                <button id="sellButtonEnergia">Vender Energia</button>
-
-                <button id="buyButtonHidrogeno">Comprar Hidrógeno</button>
-                <button id="sellButtonHidrogeno">Vender Hidrógeno</button>
-
-                <button id="tradeButton">Comerciar</button>
-
+            <h2>Planetas Disponibles</h2>
+            <div class="planet-container">
+                <div class="planet-card" id="planetaTierra">
+                    <h3>Tierra</h3>
+                    <p>Coste de entrada: 100 Créditos</p>
+                    <button id="travelButton">Viajar</button>
+                </div>
+                <div class="planet-card" id="planetaMarte">
+                    <h3>Marte</h3>
+                    <p>Coste de entrada: 150 Créditos</p>
+                    <button id="travelButton2">Viajar</button>
+                </div>
+                <div class="planet-card" id="planetaVenus">
+                    <h3>Venus</h3>
+                    <p>Coste de entrada: 200 Créditos</p>
+                    <button id="travelButton3">Viajar</button>
+                </div>
+                <div class="planet-card" id="planetaJupiter">
+                    <h3>Jupiter</h3>
+                    <p>Coste de entrada: 250 Créditos</p>
+                    <button id="travelButton4">Viajar</button>
+                </div>
+                <div class="planet-card" id="planetaSaturno">
+                    <h3>Saturno</h3>
+                    <p>Coste de entrada: 300 Créditos</p>
+                    <button id="travelButton5">Viajar</button>
+                </div>
+                <div class="planet-card" id="planetaPluton">
+                    <h3>Plutón</h3>
+                    <p>Coste de entrada: 350 Créditos</p>
+                    <button id="travelButton6">Viajar</button>
+                </div>
+                <div class="planet-card" id="planetaNeptuno">
+                    <h3>Neptuno</h3>
+                    <p>Coste de entrada: 400 Créditos</p>
+                    <button id="travelButton7">Viajar</button>
+                </div>
+                <div class="planet-card" id="planetaUrano">
+                    <h3>Urano</h3>
+                    <p>Coste de entrada: 450 Créditos</p>
+                    <button id="travelButton8">Viajar</button>
+                </div>
+                <div class="planet-card" id="planetaMercurio">
+                    <h3>Mercurio</h3>
+                    <p>Coste de entrada: 500 Créditos</p>
+                    <button id="travelButton9">Viajar</button>
+                </div>
             </div>
         </section>
-        
 
-        <footer>
-            <p>&copy; 2025 Comercio Espacial. Todos los derechos reservados.</p>
-        </footer>
+        <!-- Sección de acciones de materiales -->
+        <section id="actions">
+            <button id="buyButton">Comprar Agua</button>
+            <button id="sellButton">Vender Agua</button>
+            <button id="buyButtonComida">Comprar Comida</button>
+            <button id="sellButtonComida">Vender Comida</button>
+            <button id="buyButtonEnergia">Comprar Energia</button>
+            <button id="sellButtonEnergia">Vender Energia</button>
+            <button id="buyButtonHidrogeno">Comprar Hidrógeno</button>
+            <button id="sellButtonHidrogeno">Vender Hidrógeno</button>
+            <button id="tradeButton">Comerciar</button>
+        </section>
     </div>
 
     <script src="../js/main.js"></script>
